@@ -21,7 +21,34 @@ html,body{
 body *{
   transition: 0.3s;
 }
-h1,h2,h3,h4,h5, strong{
+h1{
+  position: relative;
+  font-size: 4vw;
+  font-family: 'Russo One', sans-serif;
+  -webkit-text-stroke: 0.2vw #383d52;
+}
+h1::before{
+  content: attr(data-text);
+  position: absolute;
+  top: 0;
+  left:0;
+  width: 0;
+  height: 100%;
+  color: #55c792;
+  -webkit-text-stroke: 0vw #383d52;
+  border-right: 2px solid #02D158;
+  overflow: hidden;
+  animation: animate 6s linear infinite;
+}
+@keyframes animate{
+  0%,10%, 100%{
+    width: 0%;
+  }
+  70%,90%{
+    width: 100%;
+  }
+}
+h2,h3,h4,h5, strong{
   color: var(--mainText);
   font-family: 'Russo One', sans-serif;
   font-weight: 500;
@@ -37,7 +64,6 @@ a{
 ul{
   list-style: none;
 }
-h1{font-size: 56px;}
 h2{font-size: 36px;}
 h3{font-size: 28px;}
 h4{font-size: 24px;}
@@ -59,8 +85,8 @@ h6{font-size: 16px;}
 }
 .greeting-wrapper{
   display:grid;
-  text-align: center;
-  align-content: center;
+  align-items: center;
+  justify-items: center;
   min-height: 10em;
 }
 .intro-wrapper{
